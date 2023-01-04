@@ -6,28 +6,28 @@ import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Policy {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int policyId;
+	
 	@CreationTimestamp
 	private LocalDateTime fromDate;
 	
 	private LocalDateTime toDate; 
 	
+	private int InsuranceId;
+	
 	@OneToMany(mappedBy = "policy")
 	private List<User> userList=new ArrayList<User>();
-	
-	@OneToOne
-	private Insurance insurance;
 
 	public int getPolicyId() {
 		return policyId;
@@ -36,7 +36,7 @@ public class Policy {
 	public void setPolicyId(int policyId) {
 		this.policyId = policyId;
 	}
-	
+
 	public LocalDateTime getFromDate() {
 		return fromDate;
 	}
@@ -49,9 +49,16 @@ public class Policy {
 		return toDate;
 	}
 
-	public void setToDate(LocalDateTime fromDate) {
-		LocalDateTime toDate2 = fromDate.plusDays(365);
-		this.toDate=toDate2;
+	public void setToDate(LocalDateTime Date) {
+		this.toDate = Date.plusDays(365);
+	}
+
+	public int getInsuranceId() {
+		return InsuranceId;
+	}
+
+	public void setInsuranceId(int insuranceId) {
+		InsuranceId = insuranceId;
 	}
 
 	public List<User> getUserList() {
@@ -62,24 +69,10 @@ public class Policy {
 		this.userList = userList;
 	}
 
-	public Insurance getInsurance() {
-		return insurance;
-	}
-
-	public void setInsurance(Insurance insurance) {
-		this.insurance = insurance;
-	}
-
 	@Override
 	public String toString() {
-		return "Policy [policyId=" + policyId + ", fromDate=" + fromDate + ", toDate=" + toDate + ", userList="
-				+ userList + ", insurance=" + insurance + "]";
+		return "Policy [policyId=" + policyId + ", fromDate=" + fromDate + ", toDate=" + toDate + ", InsuranceId="
+				+ InsuranceId + ", userList=" + userList + "]";
 	}
 	
-	
-
-	
-	
-	
-
 }

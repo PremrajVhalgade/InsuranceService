@@ -10,5 +10,5 @@ public interface InsuranceService {
 
 	List<Insurance> getInsuranceList();
 	
-	List<User> saveUsers(List<User> userList,Integer insuranceId);
+	String saveUsers(List<User> userList,int insuranceId);
 }

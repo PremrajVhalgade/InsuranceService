@@ -2,11 +2,11 @@ package com.insurance.model;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class User {
@@ -16,6 +16,16 @@ public class User {
 	private String fullName;
 	private LocalDate dob;
 	private String relation;
+
+	public User( String fullName, LocalDate dob, String relation) {
+		super();
+		this.fullName = fullName;
+		this.dob = dob;
+		this.relation = relation;
+	}
+	public User() {
+		
+	}
 
 	@ManyToOne
 	private Policy policy;

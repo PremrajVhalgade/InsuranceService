@@ -10,12 +10,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.insurance.model.Insurance;
 import com.insurance.model.User;
 import com.insurance.serviceImpl.InsuranceServiceImpl;
 
-@Controller
+@RestController
 public class InsuranceController {
 
 	@Autowired
@@ -28,9 +29,9 @@ public class InsuranceController {
 	}
 
 	@PostMapping("/insurance/{insuranceId}")
-	public ResponseEntity<List<User>> saveUser(@RequestBody List<User> userList, @PathVariable Integer insuranceId) {
-		List<User> savedUsers = insuranceServiceImpl.saveUsers(userList,insuranceId);
-		return new ResponseEntity<List<User>>( savedUsers,HttpStatus.CREATED);
+	public ResponseEntity<String> saveUser(@RequestBody List<User> userList, @PathVariable Integer insuranceId) {
+		 String output = insuranceServiceImpl.saveUsers(userList,insuranceId);
+		return new ResponseEntity<String>( output,HttpStatus.CREATED);
 	}
 
 }

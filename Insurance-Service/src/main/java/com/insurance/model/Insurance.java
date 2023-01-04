@@ -1,10 +1,9 @@
 package com.insurance.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Insurance {
@@ -14,82 +13,57 @@ public class Insurance {
 	private String companyName;
 	private String insuranceType;
 	private String planName;
-	private String sumAssured;
-	private String annualPremium;
-	private String monthlyPremium;
+	private int sumAssured;
+	private int annualPremium;
+	private int monthlyPremium;
 	
-	@OneToOne(targetEntity = Policy.class)
-	private Policy policy;
-
 	public int getInsuranceId() {
 		return insuranceId;
 	}
-
 	public void setInsuranceId(int insuranceId) {
 		this.insuranceId = insuranceId;
 	}
-
 	public String getCompanyName() {
 		return companyName;
 	}
-
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
 	}
-
 	public String getInsuranceType() {
 		return insuranceType;
 	}
-
 	public void setInsuranceType(String insuranceType) {
 		this.insuranceType = insuranceType;
 	}
-
 	public String getPlanName() {
 		return planName;
 	}
-
 	public void setPlanName(String planName) {
 		this.planName = planName;
 	}
-
-	public String getSumAssured() {
+	public int getSumAssured() {
 		return sumAssured;
 	}
-
-	public void setSumAssured(String sumAssured) {
+	public void setSumAssured(int sumAssured) {
 		this.sumAssured = sumAssured;
 	}
-
-	public String getAnnualPremium() {
+	public int getAnnualPremium() {
 		return annualPremium;
 	}
-
-	public void setAnnualPremium(String annualPremium) {
+	public void setAnnualPremium(int annualPremium) {
 		this.annualPremium = annualPremium;
 	}
-
-	public String getMonthlyPremium() {
+	public int getMonthlyPremium() {
 		return monthlyPremium;
 	}
-
-	public void setMonthlyPremium(String monthlyPremium) {
+	public void setMonthlyPremium(int monthlyPremium) {
 		this.monthlyPremium = monthlyPremium;
 	}
-		
-	public Policy getPolicy() {
-		return policy;
-	}
-
-	public void setPolicy(Policy policy) {
-		this.policy = policy;
-	}
-
 	@Override
 	public String toString() {
 		return "Insurance [insuranceId=" + insuranceId + ", companyName=" + companyName + ", insuranceType="
 				+ insuranceType + ", planName=" + planName + ", sumAssured=" + sumAssured + ", annualPremium="
-				+ annualPremium + ", monthlyPremium=" + monthlyPremium + ", policy=" + policy + "]";
+				+ annualPremium + ", monthlyPremium=" + monthlyPremium + "]";
 	}
 
 	
