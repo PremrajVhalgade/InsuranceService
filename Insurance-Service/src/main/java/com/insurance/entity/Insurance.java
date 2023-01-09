@@ -1,4 +1,4 @@
-package com.insurance.model;
+package com.insurance.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

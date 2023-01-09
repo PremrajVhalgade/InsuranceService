@@ -1,17 +1,16 @@
-package com.insurance.model;
+package com.insurance.entity;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 public class Policy {
@@ -50,7 +49,7 @@ public class Policy {
 	}
 
 	public void setToDate(LocalDateTime Date) {
-		this.toDate = Date.plusDays(365);
+		this.toDate = Date.plusDays(364);
 	}
 
 	public int getInsuranceId() {
