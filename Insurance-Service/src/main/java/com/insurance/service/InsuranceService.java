@@ -11,6 +11,6 @@ public interface InsuranceService {
 
 	String saveUsers(List<User> userList, int insuranceId);
 
-	void createReport(Integer insuranceId);
+	List<Object> createReport(int insuranceId);
 
 }

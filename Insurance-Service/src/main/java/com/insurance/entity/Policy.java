@@ -1,15 +1,12 @@
 package com.insurance.entity;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
@@ -26,7 +23,7 @@ public class Policy {
 	private int InsuranceId;
 	
 	@OneToMany(mappedBy = "policy")
-	private List<User> userList=new ArrayList<User>();
+	private List<User> userList;
 
 	public int getPolicyId() {
 		return policyId;
@@ -70,8 +67,8 @@ public class Policy {
 
 	@Override
 	public String toString() {
-		return "Policy [policyId=" + policyId + ", fromDate=" + fromDate + ", toDate=" + toDate + ", InsuranceId="
-				+ InsuranceId + ", userList=" + userList + "]";
+		return "Policy [policyId=" + policyId + ", fromDate=" + fromDate + ", toDate=" + toDate + ", userList="
+				+ userList + "]";
 	}
 	
 }

@@ -14,11 +14,13 @@ public interface UserRepo extends JpaRepository<User, Integer> {
 
 	@Query(value = "select plan_name from insurance where insurance_id=?", nativeQuery = true)
 	String fetchPolicyName(Integer insuranceId);
-	
+
 	@Query(value = "select insurance_type from insurance where insurance_id=?", nativeQuery = true)
 	String fetchPolicyType(Integer insuranceId);
-	
-	@Query(value = "select full_name from user where policy_policy_id=? and relation='Self'",nativeQuery = true)
+
+	@Query(value = "select full_name from user where policy_policy_id=? and relation='Self'", nativeQuery = true)
 	String fetchUserName(Integer policyId);
+
 	
+
 }

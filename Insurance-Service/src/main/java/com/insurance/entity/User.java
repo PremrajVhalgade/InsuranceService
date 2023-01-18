@@ -17,19 +17,20 @@ public class User {
 	private LocalDate dob;
 	private String relation;
 
+	@ManyToOne
+	private Policy policy;
+	
 	public User( String fullName, LocalDate dob, String relation) {
 		super();
 		this.fullName = fullName;
 		this.dob = dob;
 		this.relation = relation;
+	
 	}
 	public User() {
 		
 	}
 
-	@ManyToOne
-	private Policy policy;
-	
 	public int getMemberId() {
 		return memberId;
 	}

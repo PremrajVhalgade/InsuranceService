@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Insurance {
@@ -16,6 +17,9 @@ public class Insurance {
 	private int sumAssured;
 	private int annualPremium;
 	private int monthlyPremium;
+	
+//	@OneToOne
+//	private Policy policy;
 	
 	public int getInsuranceId() {
 		return insuranceId;
@@ -59,6 +63,8 @@ public class Insurance {
 	public void setMonthlyPremium(int monthlyPremium) {
 		this.monthlyPremium = monthlyPremium;
 	}
+	
+	
 	@Override
 	public String toString() {
 		return "Insurance [insuranceId=" + insuranceId + ", companyName=" + companyName + ", insuranceType="
