@@ -82,7 +82,7 @@ public class InsuranceServiceImpl implements InsuranceService {
 		int insuranceId = policyDetails.getInsuranceId();
 		LocalDateTime fromDate = policyDetails.getFromDate();
 		LocalDateTime toDate = policyDetails.getToDate();
-		// System.out.println(policyDetails);
+		 //System.out.println(policyDetails);
 
 		Insurance insurance = insuranceRepo.findById(insuranceId)
 				.orElseThrow(() -> new ResourceNotFoundException("Insurance", "Insurance Id", insuranceId));

@@ -67,8 +67,15 @@ public class Policy {
 
 	@Override
 	public String toString() {
-		return "Policy [policyId=" + policyId + ", fromDate=" + fromDate + ", toDate=" + toDate + ", userList="
-				+ userList + "]";
+		return "Policy [policyId=" + policyId + ", fromDate=" + fromDate + ", toDate=" + toDate + ", InsuranceId="
+				+ InsuranceId + ", userList=" + userList + "]";
 	}
+
+	
+//	@Override
+//	public String toString() {
+//		return "Policy [policyId=" + policyId + ", fromDate=" + fromDate + ", toDate=" + toDate + ", userList="
+//				+ userList + "]";
+//	}
 	
 }

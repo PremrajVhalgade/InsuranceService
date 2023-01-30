@@ -1,6 +1,7 @@
 package com.insurance;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,18 +15,7 @@ import com.insurance.entity.User;
 import com.insurance.repo.PolicyRepo;
 
 public class Demo {
-	@Autowired
-	private PolicyRepo policyRepo;
-
-	public void test(int policyId) {
-
-		Policy policyDetails = policyRepo.getPolicyDetails(policyId);
-		int insuranceId = policyDetails.getInsuranceId();
-		policyDetails.getFromDate();
-		policyDetails.getToDate();
-		System.out.println(policyDetails);
-	}
-
+	
 	public static void main(String[] args) throws JsonProcessingException {
 
 //		List<User> userList = new ArrayList<User>();
@@ -34,12 +24,34 @@ public class Demo {
 //		userList.add(new User("Gautam Jabhade", LocalDate.of(1966, 03, 17), "Self"));
 //		userList.add(new User("Surekha Jabhade", LocalDate.of(1974, 07, 31), "Mother"));
 //		policy.setUserList(userList);
-//		ObjectMapper mapper = new ObjectMapper();
-//		mapper.registerModule(new JavaTimeModule());
-//		String string = mapper.writeValueAsString(userList);
+		
+		Policy policy = new Policy();
+		policy.setFromDate(LocalDateTime.now());
+		policy.setToDate(LocalDateTime.now().plusDays(365L));
+		policy.setInsuranceId(5);
+	
 
-		Demo demo=new Demo();
-		demo.test(1);
+		User user1 = new User();
+		user1.setDob(LocalDate.of(1996, 06, 22));
+		user1.setFullName("Premraj Vhalgade");
+		user1.setRelation("Self");
+
+		User user2 = new User();
+		user2.setDob(LocalDate.of(1996, 12, 02));
+		user2.setFullName("Prachi Vhalgade");
+		user2.setRelation("Wife");
+		List<User> userList = new ArrayList<>();
+		userList.add(user1);
+		userList.add(user2);
+
+		for (User u : userList) {
+			u.setPolicy(policy);
+		}
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.registerModule(new JavaTimeModule());
+		String string = mapper.writeValueAsString(user1);
+		System.out.println(string);
+		
 	}
 
 }

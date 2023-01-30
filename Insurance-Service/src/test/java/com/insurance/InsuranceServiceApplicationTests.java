@@ -8,6 +8,7 @@ class InsuranceServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
+		
 	}
 
 }

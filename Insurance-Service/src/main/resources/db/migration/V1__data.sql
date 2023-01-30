@@ -1,4 +1,13 @@
-DELETE FROM insurance;
+CREATE TABLE IF NOT EXISTS `insurance` (
+
+   insurance_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   company_name varchar(50),
+    insurance_type varchar(50),
+    plan_name varchar(50),
+    sum_assured int,
+    monthly_premium int,
+    annual_premium int
+);
 
 INSERT INTO insurance (insurance_id,company_name,insurance_type,plan_name,sum_assured,monthly_premium,annual_premium) VALUES 
 (1,'Religare','Health Insurance','Starplan',500000,1067,12800),
@@ -11,3 +20,5 @@ INSERT INTO insurance (insurance_id,company_name,insurance_type,plan_name,sum_as
 (8,'Reliance','Health Insurance','SuperPlan',800000,1283,15400),
 (9,'The new India','Health Insurance','TricolorPlan',500000,1100,13200),
 (10,'Max Bupa','Health Insurance','MaxPlan',800000,1075,12900);
+
+								

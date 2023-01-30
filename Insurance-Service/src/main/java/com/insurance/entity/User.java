@@ -70,11 +70,18 @@ public class User {
 	public void setPolicy(Policy policy) {
 		this.policy = policy;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "User [memberId=" + memberId + ", fullName=" + fullName + ", dob=" + dob + ", relation=" + relation
 				+ ", policy=" + policy + "]";
 	}
+
+	
+//	@Override
+//	public String toString() {
+//		return "User [memberId=" + memberId + ", fullName=" + fullName + ", dob=" + dob + ", relation=" + relation
+//				+ ", policy=" + policy + "]";
+//	}
 	
 }

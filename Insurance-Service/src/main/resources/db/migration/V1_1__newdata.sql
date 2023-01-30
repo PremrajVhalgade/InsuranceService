@@ -1,0 +1,1 @@
+alter table insurance add column demo varchar(55);
