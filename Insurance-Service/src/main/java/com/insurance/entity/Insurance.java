@@ -18,6 +18,10 @@ public class Insurance {
 	private int annualPremium;
 	private int monthlyPremium;
 
+	public Insurance() {
+		
+	}
+
 	public Insurance(String companyName, String insuranceType, String planName, int sumAssured, int annualPremium,
 			int monthlyPremium) {
 		super();

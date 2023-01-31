@@ -27,7 +27,7 @@ import io.restassured.specification.RequestSpecification;
 public class InsuranceControllerTest {
 	@Autowired
 	private InsuranceRepo insuranceRepo;
-	private RequestSpecification requestSpecification;
+	private RequestSpecification          requestSpecBuilder;
 
 	@LocalServerPort
 	private int port;
@@ -35,16 +35,16 @@ public class InsuranceControllerTest {
 	@PostConstruct
 	public void initRequestSpecification() {
 		final RequestSpecBuilder tempSpec = new RequestSpecBuilder();
-		tempSpec.setBaseUri("http://localhost:" + port + "/insurance").build();
+		requestSpecBuilder=tempSpec.setBaseUri("http://localhost:" + port + "/insurance").build();
 	}
 
 	@Test
 	public void testGetInsuranceList_withValidData_OK() {
 		// Given
 		List<Insurance> insuranceList = Datagenerator.saveInsurance();
-		insuranceRepo.saveAll(insuranceList);
+		List<Insurance> saveAll = insuranceRepo.saveAll(insuranceList);
 		// When
-		ValidatableResponse response = RestAssured.when().get("/").then();
+		ValidatableResponse response = RestAssured.given(requestSpecBuilder).when().get("/").then();
 		// Then
 		int statusCode = response.extract().statusCode();
 		assertEquals(200, statusCode);
